@@ -53,6 +53,9 @@ type sender struct {
 
 func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 	clientID := message.GetApiClientID()
+	if clientID == "" {
+		clientID = DefaultClientID
+	}
 	client := s.clients[clientID]
 	if client == nil {
 		client = s.defaultClient
