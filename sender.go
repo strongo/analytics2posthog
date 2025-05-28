@@ -53,16 +53,16 @@ type sender struct {
 
 func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 	clientID := message.GetApiClientID()
-	if clientID == "" {
-		clientID = DefaultClientID
-	}
-	client := s.clients[clientID]
-	if client == nil {
-		client = s.defaultClient
-	}
-	if client == nil {
-		s.logger.Warningf(ctx, "Could not find PostHog client with ID=%s", clientID)
-		return
+	var client posthog.Client
+	if clientID == "" || clientID == DefaultClientID {
+		if client = s.defaultClient; client == nil {
+			return
+		}
+	} else if client = s.clients[clientID]; client == nil {
+		s.logger.Warningf(ctx, "could not find PostHog client with ID='%s'", clientID)
+		if client = s.defaultClient; client == nil {
+			return
+		}
 	}
 	m, err := capture(message)
 	if err != nil {
