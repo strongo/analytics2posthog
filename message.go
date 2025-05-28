@@ -2,9 +2,9 @@ package analytics2posthog
 
 import (
 	"errors"
+	"github.com/posthog/posthog-go"
 	"github.com/strongo/analytics"
 )
-import posthog "github.com/posthog/posthog-go"
 
 var errUnsupportedMessageType = errors.New("unsupported message type")
 
@@ -14,27 +14,26 @@ func capture(msg analytics.Message) (phm posthog.Message, err error) {
 		err = errors.New("msg.User().UserID is empty string")
 		return
 	}
+	properties := msg.Properties()
+	props := make(posthog.Properties, len(properties)+1)
+	for k, v := range properties {
+		props[k] = v
+	}
 	switch m := msg.(type) {
 	case analytics.Pageview:
-		props := make(map[string]any)
 		if title := m.Title(); title != "" {
-			props["title"] = title
-		}
-		phm = posthog.Capture{
-			Event:      msg.Event(),
-			DistinctId: distinctID,
-			Properties: props,
+			props.Set("title", title)
 		}
 	case analytics.Timing:
-		phm = posthog.Capture{
-			Event:      msg.Event(),
-			DistinctId: distinctID,
-			Properties: map[string]any{
-				"duration_ms": m.Duration().Milliseconds(),
-			},
-		}
+		props.Set("duration_ms", m.Duration().Milliseconds())
 	default:
 		err = errUnsupportedMessageType
+		return
+	}
+	phm = posthog.Capture{
+		Event:      msg.Event(),
+		DistinctId: distinctID,
+		Properties: props,
 	}
 	return
 }
