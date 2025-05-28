@@ -9,6 +9,11 @@ import posthog "github.com/posthog/posthog-go"
 var errUnsupportedMessageType = errors.New("unsupported message type")
 
 func capture(msg analytics.Message) (phm posthog.Message, err error) {
+	distinctID := msg.User().UserID
+	if distinctID == "" {
+		err = errors.New("msg.User().UserID is empty string")
+		return
+	}
 	switch m := msg.(type) {
 	case analytics.Pageview:
 		props := make(map[string]any)
@@ -17,11 +22,13 @@ func capture(msg analytics.Message) (phm posthog.Message, err error) {
 		}
 		phm = posthog.Capture{
 			Event:      msg.Event(),
+			DistinctId: distinctID,
 			Properties: props,
 		}
 	case analytics.Timing:
 		phm = posthog.Capture{
-			Event: msg.Event(),
+			Event:      msg.Event(),
+			DistinctId: distinctID,
 			Properties: map[string]any{
 				"duration_ms": m.Duration().Milliseconds(),
 			},
