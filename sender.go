@@ -53,6 +53,7 @@ type sender struct {
 
 func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 	clientID := message.GetApiClientID()
+
 	var client posthog.Client
 	if clientID == "" || clientID == DefaultClientID {
 		if client = s.defaultClient; client == nil {
@@ -64,12 +65,11 @@ func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 			return
 		}
 	}
-	m, err := capture(message)
-	if err != nil {
-		s.logger.Errorf(ctx, "capture error: %v", err)
+
+	if m, err := capture(message); err != nil {
+		s.logger.Errorf(ctx, "posthog capture(messsage) error: %v", err)
 		return
-	}
-	if err = client.Enqueue(m); err != nil {
+	} else if err = client.Enqueue(m); err != nil {
 		s.logger.Errorf(ctx, "posthog enqueue error: %v", err)
 	}
 }

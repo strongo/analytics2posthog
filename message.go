@@ -1,7 +1,12 @@
 package analytics2posthog
 
-import "github.com/strongo/analytics"
+import (
+	"errors"
+	"github.com/strongo/analytics"
+)
 import posthog "github.com/posthog/posthog-go"
+
+var errUnsupportedMessageType = errors.New("unsupported message type")
 
 func capture(msg analytics.Message) (phm posthog.Message, err error) {
 	switch m := msg.(type) {
@@ -21,6 +26,8 @@ func capture(msg analytics.Message) (phm posthog.Message, err error) {
 				"duration_ms": m.Duration().Milliseconds(),
 			},
 		}
+	default:
+		err = errUnsupportedMessageType
 	}
 	return
 }
