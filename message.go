@@ -38,6 +38,9 @@ func mapCustomProperties(properties analytics.Properties) (props posthog.Propert
 }
 
 func mapGenericProps(msg analytics.Message, props posthog.Properties) (err error) {
+	if category := msg.Category(); category != "" {
+		props.Set("category", category)
+	}
 	switch m := msg.(type) {
 	case analytics.Pageview:
 		if title := m.Title(); title != "" {
@@ -53,9 +56,6 @@ func mapGenericProps(msg analytics.Message, props posthog.Properties) (err error
 			props.Set("$pathname", path)
 		}
 	case analytics.Event:
-		if category := m.Category(); category != "" {
-			props.Set("category", category)
-		}
 		if action := m.Action(); action != "" {
 			props.Set("action", action)
 		}
