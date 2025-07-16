@@ -8,23 +8,23 @@ import (
 
 var errUnsupportedMessageType = errors.New("unsupported message type")
 
-func capture(msg analytics.Message) (phm posthog.Message, err error) {
-	distinctID := msg.User().UserID
-	if distinctID == "" {
+func capture(msg analytics.Message) (phc posthog.Capture, err error) {
+	if msg == nil {
+		panic("analytics2posthog.capture(nil)")
+	}
+	phc = posthog.Capture{
+		DistinctId: msg.User().GetUserID(),
+		Event:      msg.Event(),
+	}
+	if phc.DistinctId == "" {
 		err = errors.New("msg.User().UserID is empty string")
 		return
 	}
 
-	props := mapCustomProperties(msg.Properties())
+	phc.Properties = mapCustomProperties(msg.Properties())
 
-	if err = mapGenericProps(msg, props); err != nil {
+	if err = mapGenericProps(msg, phc.Properties); err != nil {
 		return
-	}
-
-	phm = posthog.Capture{
-		Event:      msg.Event(),
-		DistinctId: distinctID,
-		Properties: props,
 	}
 	return
 }
@@ -40,6 +40,14 @@ func mapCustomProperties(properties analytics.Properties) (props posthog.Propert
 func mapGenericProps(msg analytics.Message, props posthog.Properties) (err error) {
 	if category := msg.Category(); category != "" {
 		props.Set("category", category)
+	}
+	if user := msg.User(); user != nil {
+		if lang := user.GetUserLanguage(); lang != "" {
+			props.Set("user_lang", lang)
+		}
+		if userAgent := user.GetUserAgent(); userAgent != "" {
+			props.Set("user_agent", userAgent)
+		}
 	}
 	switch m := msg.(type) {
 	case analytics.Pageview:

@@ -18,6 +18,8 @@ github.com/strongo/analytics v0.0.11 h1:rgORqeYRf1kXkJOBX+7UO5Op2ulcc5jkp7fbUC5+
 github.com/strongo/analytics v0.0.11/go.mod h1:1OdiZI9/fPDN8ep1Pbz+F3UZPNbttUD7T1St15r760c=
 github.com/strongo/analytics v0.1.0 h1:42Oa43Rx90LRjzLJO/hUG4POYSZ5Dwf9cZnkZmNz4Bc=
 github.com/strongo/analytics v0.1.0/go.mod h1:1OdiZI9/fPDN8ep1Pbz+F3UZPNbttUD7T1St15r760c=
+github.com/strongo/analytics v0.2.1 h1:PP/TMyE20QjfQjPY7S+bUbSgyd01f9ZUjeuniRsEvEE=
+github.com/strongo/analytics v0.2.1/go.mod h1:1OdiZI9/fPDN8ep1Pbz+F3UZPNbttUD7T1St15r760c=
 github.com/strongo/logus v0.2.1 h1:ZzAtdSg6PPF1Y43WbNWl7MH1XYl7kvKMxyxv/lpbadI=
 github.com/strongo/logus v0.2.1/go.mod h1:sd8gjJklqGQAg+Q0mlP5MWgzguAuxR25YYFSkfVOPdc=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
