@@ -67,9 +67,11 @@ func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 	}
 
 	if m, err := capture(message); err != nil {
-		s.logger.Errorf(ctx, "posthog capture(messsage) error: %v", err)
+		s.logger.Errorf(ctx,
+			"analytics2posthog.capture(msg{event=%s, category=%s}) returned error: %v",
+			message.Event(), message.Category(), err)
 		return
 	} else if err = client.Enqueue(m); err != nil {
-		s.logger.Errorf(ctx, "posthog enqueue error: %v", err)
+		s.logger.Errorf(ctx, "analytics2posthog.posthog.Client.Enqueue() returned error: %v", err)
 	}
 }

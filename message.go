@@ -30,7 +30,7 @@ func capture(msg analytics.Message) (phm posthog.Message, err error) {
 }
 
 func mapCustomProperties(properties analytics.Properties) (props posthog.Properties) {
-	props = make(posthog.Properties, len(properties)+1)
+	props = make(posthog.Properties, len(properties)+10)
 	for k, v := range properties {
 		props[k] = v
 	}
@@ -51,6 +51,19 @@ func mapGenericProps(msg analytics.Message, props posthog.Properties) (err error
 		}
 		if path := m.Path(); path != "" {
 			props.Set("$pathname", path)
+		}
+	case analytics.Event:
+		if category := m.Category(); category != "" {
+			props.Set("category", category)
+		}
+		if action := m.Action(); action != "" {
+			props.Set("action", action)
+		}
+		if label := m.Label(); label != "" {
+			props.Set("label", label)
+		}
+		if value := m.Value(); value != 0 {
+			props.Set("value", value)
 		}
 	case analytics.Timing:
 		props.Set("duration_ms", m.Duration().Milliseconds())
