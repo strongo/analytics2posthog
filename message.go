@@ -73,6 +73,9 @@ func mapGenericProps(msg analytics.Message, props posthog.Properties) (err error
 		if value := m.Value(); value != 0 {
 			props.Set("value", value)
 		}
+		if title := m.Title(); title != "" {
+			props.Set("title", title)
+		}
 	case analytics.Timing:
 		props.Set("duration_ms", m.Duration().Milliseconds())
 	default:

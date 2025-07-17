@@ -4,7 +4,7 @@ go 1.24.3
 
 require (
 	github.com/posthog/posthog-go v1.5.15
-	github.com/strongo/analytics v0.2.1
+	github.com/strongo/analytics v0.2.2
 )
 
 require (
