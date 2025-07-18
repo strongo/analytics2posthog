@@ -67,9 +67,14 @@ func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 	}
 
 	if m, err := capture(message); err != nil {
+		event := message.Event()
+		switch msg := message.(type) {
+		case analytics.Pageview:
+			event += "/" + msg.Path()
+		}
 		s.logger.Errorf(ctx,
-			"analytics2posthog.capture(msg{event=%s, category=%s}) returned error: %v",
-			message.Event(), message.Category(), err)
+			"analytics2posthog.capture(msg{event=%s, category=%s, %s}) returned error: %v",
+			event, message.Category(), err)
 		return
 	} else if err = client.Enqueue(m); err != nil {
 		s.logger.Errorf(ctx, "analytics2posthog.posthog.Client.Enqueue() returned error: %v", err)
