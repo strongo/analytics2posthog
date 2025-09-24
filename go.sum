@@ -20,6 +20,8 @@ github.com/posthog/posthog-go v1.6.5 h1:4GWFpOLY/QJngpS1BX1/MwvO/xQGKkcSIfVzH+GS
 github.com/posthog/posthog-go v1.6.5/go.mod h1:LcC1Nu4AgvV22EndTtrMXTy+7RGVC0MhChSw7Qk5XkY=
 github.com/posthog/posthog-go v1.6.8 h1:l5H05oKqiZbLYAjxrus3Rvj606bdEu+7EDAhKnSgU6I=
 github.com/posthog/posthog-go v1.6.8/go.mod h1:LcC1Nu4AgvV22EndTtrMXTy+7RGVC0MhChSw7Qk5XkY=
+github.com/posthog/posthog-go v1.6.10 h1:OA6bkiUg89rI7f5cSXbcrH5+wLinyS6hHplnD92Pu/M=
+github.com/posthog/posthog-go v1.6.10/go.mod h1:LcC1Nu4AgvV22EndTtrMXTy+7RGVC0MhChSw7Qk5XkY=
 github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/strongo/analytics v0.0.11 h1:rgORqeYRf1kXkJOBX+7UO5Op2ulcc5jkp7fbUC5+ANM=
