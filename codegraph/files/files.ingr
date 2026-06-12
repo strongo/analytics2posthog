@@ -1,0 +1,32 @@
+# INGR.io | files: $ID, content_hash, language, size:int, node_count:int, errors
+".github/workflows/go.yml"
+"b9df314065d53e9502c78d36ce1c41c2b0abe69238eb36b801c262031020ea4a"
+"yaml"
+519
+0
+null
+"logging.go"
+"d8fe0d0360f062365a204ab1b632be1186cbeee935e946cc0ae57d8d97d80fba"
+"go"
+187
+5
+null
+"message.go"
+"24c9f9c7db5ea84436e290290bb5528ee7bddc65aab10b6f27ee3c410e1d7b79"
+"go"
+2038
+8
+null
+"sender.go"
+"a2585789fccdcc15d735a27f959b31d20db110485fb9621a0ce6574f778af30f"
+"go"
+2126
+11
+null
+"sender_test.go"
+"9b05b7f1cde77c8cc6c75feb251f5cf9e0d14a3b66985da64263be6df20487e7"
+"go"
+910
+8
+null
+# 5 records
