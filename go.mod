@@ -3,7 +3,7 @@ module github.com/strongo/analytics2posthog
 go 1.24.3
 
 require (
-	github.com/posthog/posthog-go v1.14.0
+	github.com/posthog/posthog-go v1.15.0
 	github.com/strongo/analytics v0.2.5
 )
 
