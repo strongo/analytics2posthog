@@ -2,8 +2,7 @@ name: Go CI
 
 on:
   push:
-    branches:
-      - '**'
+    branches: [main]
 #    branches-ignore:
 #      - renovate/**
     tags:
