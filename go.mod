@@ -2,11 +2,11 @@ module github.com/strongo/analytics2posthog
 
 go 1.26.0
 
-toolchain go1.27.0
+toolchain go1.27.1
 
 require (
-	github.com/posthog/posthog-go v1.23.1
-	github.com/strongo/analytics v0.2.5
+	github.com/posthog/posthog-go v1.25.1
+	github.com/strongo/analytics v0.2.8
 )
 
 require (
@@ -17,4 +17,5 @@ require (
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/strongo/logus v0.4.1 // indirect
 	golang.org/x/sys v0.21.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 )
