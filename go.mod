@@ -6,7 +6,7 @@ toolchain go1.27.1
 
 require (
 	github.com/posthog/posthog-go v1.27.0
-	github.com/strongo/analytics v0.2.9
+	github.com/strongo/analytics v0.2.10
 )
 
 require (
