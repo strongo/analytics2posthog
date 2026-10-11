@@ -2,10 +2,10 @@ module github.com/strongo/analytics2posthog
 
 go 1.26.0
 
-toolchain go1.27.1
+toolchain go1.27.2
 
 require (
-	github.com/posthog/posthog-go v1.33.0
+	github.com/posthog/posthog-go v1.34.0
 	github.com/strongo/analytics v0.2.10
 )
 
