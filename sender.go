@@ -19,6 +19,8 @@ type Client struct {
 	Config posthog.Config
 }
 
+var newPosthogClient = posthog.NewWithConfig
+
 func NewSender(logger Logger, clients ...Client) (analytics.Sender, error) {
 	if len(clients) == 0 {
 		return nil, errors.New("no clients provided")
@@ -28,7 +30,7 @@ func NewSender(logger Logger, clients ...Client) (analytics.Sender, error) {
 		clients: make(map[string]posthog.Client, len(clients)),
 	}
 	for i, client := range clients {
-		phClient, err := posthog.NewWithConfig(client.ApiKey, client.Config)
+		phClient, err := newPosthogClient(client.ApiKey, client.Config)
 		if err != nil {
 			return nil, fmt.Errorf("error creating posthog phClient #%d, ID=%s: %w", i+1, client.ID, err)
 		}
@@ -73,7 +75,7 @@ func (s *sender) QueueMessage(ctx context.Context, message analytics.Message) {
 			event += "/" + msg.Path()
 		}
 		s.logger.Errorf(ctx,
-			"analytics2posthog.capture(msg{event=%s, category=%s, %s}) returned error: %v",
+			"analytics2posthog.capture(msg{event=%s, category=%s}) returned error: %v",
 			event, message.Category(), err)
 		return
 	} else if err = client.Enqueue(m); err != nil {
