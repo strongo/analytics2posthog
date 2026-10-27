@@ -84,6 +84,8 @@ github.com/posthog/posthog-go v1.35.1 h1:FJi4xm4STBzQVRZxNeb462Qhqe4le//AljZaCgA
 github.com/posthog/posthog-go v1.35.1/go.mod h1:rN0C9Urenhytgo3KQ/QVorGkyGfpouquDTSs2Ujzr+g=
 github.com/posthog/posthog-go v1.37.0 h1:N6PvAiX91kifVy39OqDya/lLR78QDfimHYtRPBjH5UE=
 github.com/posthog/posthog-go v1.37.0/go.mod h1:rN0C9Urenhytgo3KQ/QVorGkyGfpouquDTSs2Ujzr+g=
+github.com/posthog/posthog-go v1.38.0 h1:jJarvHCgeLy7jdTB51bYj5uH1nCJZPeDAEoU/rdXS/A=
+github.com/posthog/posthog-go v1.38.0/go.mod h1:rN0C9Urenhytgo3KQ/QVorGkyGfpouquDTSs2Ujzr+g=
 github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/strongo/analytics v0.0.11 h1:rgORqeYRf1kXkJOBX+7UO5Op2ulcc5jkp7fbUC5+ANM=
@@ -104,6 +106,8 @@ github.com/strongo/analytics v0.2.9 h1:Sc5NiJNQWfdA0O62F5ylNC5mOyKCMyrGzXSKZ7Uba
 github.com/strongo/analytics v0.2.9/go.mod h1:o9czh6b7MoBhoQe7DSd5Mr1t8Ndfjc7NSZDMtkXFedw=
 github.com/strongo/analytics v0.2.10 h1:VX7QkQvPX+sI3x+5wPTbH3wotlizZopqmVK95KqxFtM=
 github.com/strongo/analytics v0.2.10/go.mod h1:o9czh6b7MoBhoQe7DSd5Mr1t8Ndfjc7NSZDMtkXFedw=
+github.com/strongo/analytics v0.2.12 h1:T+g84q9jRhAFBP9MAHd4fYmKVvJAi8DqInGZYEyLlvI=
+github.com/strongo/analytics v0.2.12/go.mod h1:WRQ+hUgzABvqmlg5dPdFECcrtWziXTQg9ww5yLP7KEg=
 github.com/strongo/logus v0.2.1 h1:ZzAtdSg6PPF1Y43WbNWl7MH1XYl7kvKMxyxv/lpbadI=
 github.com/strongo/logus v0.2.1/go.mod h1:sd8gjJklqGQAg+Q0mlP5MWgzguAuxR25YYFSkfVOPdc=
 github.com/strongo/logus v0.4.0 h1:EdwNafWX1eGWvPqMvu3gHVqXtBOUvV9KWbxm6tCU+dU=
@@ -112,6 +116,8 @@ github.com/strongo/logus v0.4.1 h1:jEkcT5JzawDYjexRVHkCQiG4tv6Bm2a/c/ZdLk0IPqM=
 github.com/strongo/logus v0.4.1/go.mod h1:sd8gjJklqGQAg+Q0mlP5MWgzguAuxR25YYFSkfVOPdc=
 github.com/strongo/logus v0.4.4 h1:zv0t1tSCE1pHEOpmZnlwKRDb8pfxaCeP/Hk2PCj6swg=
 github.com/strongo/logus v0.4.4/go.mod h1:mVugDWLg/FXFiNAunrt+gvuEJtsSeCgwosU22FV1myY=
+github.com/strongo/logus v0.4.8 h1:FjkugmpUrcCauhdivt+mLX+dBnb3YignxvUFQhXGoOc=
+github.com/strongo/logus v0.4.8/go.mod h1:hcWg+clT6ypw8lyvZZIxpf4DVMpdYbm5jRtFyMot0xQ=
 github.com/xyproto/randomstring v1.0.5/go.mod h1:rgmS5DeNXLivK7YprL0pY+lTuhNQW3iGxZ18UQApw/E=
 golang.org/x/sys v0.21.0 h1:rF+pYz3DAGSQAxAu1CbC7catZg4ebC4UIeIhKxBZvws=
 golang.org/x/sys v0.21.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
