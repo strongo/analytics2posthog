@@ -6,8 +6,8 @@ toolchain go1.27.4
 
 require (
 	github.com/posthog/posthog-go v1.44.1
-	github.com/posthog/posthog-go/v2 v2.1.0
-	github.com/strongo/analytics v0.2.12
+	github.com/posthog/posthog-go/v2 v2.1.1
+	github.com/strongo/analytics v0.2.13
 )
 
 require (
@@ -16,7 +16,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/klauspost/compress v1.18.7 // indirect
-	github.com/strongo/logus v0.4.8 // indirect
+	github.com/strongo/logus v0.4.9 // indirect
 	golang.org/x/sys v0.21.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 )
