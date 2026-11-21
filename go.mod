@@ -5,7 +5,7 @@ go 1.26.0
 toolchain go1.27.4
 
 require (
-	github.com/posthog/posthog-go v1.44.1
+	github.com/posthog/posthog-go/v2 v2.1.1
 	github.com/posthog/posthog-go/v2 v2.1.1
 	github.com/strongo/analytics v0.2.13
 )
