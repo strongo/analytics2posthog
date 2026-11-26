@@ -1,5 +1,31 @@
 {
   "extends": [
     "github>strongo/renovate-config"
+  ],
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "prConcurrentLimit": 3,
+  "branchConcurrentLimit": 3,
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "description": "Run inherited automerge rules through protected pull requests",
+      "matchPackageNames": ["*"],
+      "automergeType": "pr"
+    },
+    {
+      "description": "Review major updates in the dashboard",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "automerge": false
+    },
+    {
+      "description": "Migrate the legacy PostHog import in a source change",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["github.com/posthog/posthog-go"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
   ]
 }
